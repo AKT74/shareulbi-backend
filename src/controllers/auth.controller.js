@@ -76,8 +76,8 @@ exports.login = async (req, res) => {
     // ✅ SET COOKIE (KUNCI)
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax", // pakai "none" + secure=true kalau beda domain
+      secure: true,
+      sameSite: "none", // pakai "none" + secure=true kalau beda domain
       maxAge: 24 * 60 * 60 * 1000, // 1 hari
       path: "/"
     })
