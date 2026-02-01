@@ -211,7 +211,6 @@ exports.register = async (req, res) => {
     const result = await pool.query(
       `
     INSERT INTO users (
-      id,
       fullname,
       email,
       password,
@@ -225,7 +224,6 @@ exports.register = async (req, res) => {
       is_active
     )
     VALUES (
-      uuid_generate_v4(),
       $1, $2, $3, $4, $5, $6, $7, $8, $9,
       'pending',
       true
