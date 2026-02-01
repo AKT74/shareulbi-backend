@@ -28,8 +28,10 @@ const worksRoutes = require("./routes/works.routes")
 
 // ================= MIDDLEWARES =================
 app.use(cors({
-  origin: "http://localhost:3000",
-  // "https://shareulbi.vercel.app" // domain FE kamu
+  origin: [
+    "http://localhost:3000", 
+    "https://shareulbi-frontend.vercel.app/" // domain FE kamu
+  ], 
   credentials: true
 }))
 
