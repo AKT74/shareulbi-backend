@@ -3,6 +3,13 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser") // ⬅️ TAMBAH
 require("dotenv").config()
 
+console.log("ENV CHECK:", {
+  DATABASE_URL: !!process.env.DATABASE_URL,
+  SUPABASE_URL: !!process.env.SUPABASE_URL,
+  SUPABASE_SECRET_KEY: !!process.env.SUPABASE_SECRET_KEY,
+  JWT_SECRET: !!process.env.JWT_SECRET,
+})
+
 const app = express()
 
 const authRoutes = require("./routes/auth.routes")
