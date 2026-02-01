@@ -28,14 +28,11 @@ const worksRoutes = require("./routes/works.routes")
 
 // ================= MIDDLEWARES =================
 app.use(cors({
-  origin: [
-    "http://localhost:3000", 
-     "https://shareulbi-frontend.vercel.app"
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}))
+  origin: true,         
+  credentials: true
+}));
+
+
 
 app.use(express.json())
 app.use(cookieParser()) // ⬅️ WAJIB
