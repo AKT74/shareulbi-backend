@@ -1,4 +1,3 @@
-const pdf = require("pdf-poppler");
 const path = require("path");
 const fs = require("fs");
 
@@ -7,6 +6,9 @@ module.exports = async function convertPdfToImages(
   outputDir,
   fileId
 ) {
+  // 🔥 LAZY IMPORT
+  const pdf = require("pdf-poppler");
+
   const options = {
     format: "png",
     out_dir: outputDir,
