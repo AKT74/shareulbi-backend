@@ -1,6 +1,22 @@
 const pool = require("../db")
 const { validate: isUUID } = require("uuid")
 
+// GET /api/users/pending/count
+exports.getPendingUserCount = async (req, res) => {
+  try {
+    const result = await pool.query(
+      "SELECT COUNT(*) FROM users WHERE onboarding_status = 'pending'"
+    )
+
+    res.json({
+      count: parseInt(result.rows[0].count)
+    })
+  } catch (err) {
+    res.status(500).json({ message: "Server error" })
+  }
+}
+
+
 /**
  * GET /admin/users/pending
  * Ambil semua user pending approval
